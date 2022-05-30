@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>( ͡⚆ ͜ʖ ͡⚆)╭∩╮</title>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   </head>
+   <!-- Couler Palette https://coolors.co/palette/7400b8-6930c3-5e60ce-5390d9-4ea8de-48bfe3-56cfe1-64dfdf-72efdd-80ffdb -->
+   <body>
+      <div class="container container-fluid">
+      <p><strong>Enter aStat and bStat with dot</strong></p>
+      <form>
+         <div class="form-group" style="max-width: 13%">
+            <label for="number">aStat</label>
+            <input id="aStat" value="" type="text" name="number" />
+            <label for="number">bStat</label>
+           <input id="bStat" value="" type="text" name="number" />
+           <label for="number">aPick</label>
+           <input id="aPick" value="" type="text" name="number" />
+           <label for="number">bPick</label>
+          <input id="bPick" value="" type="text" name="number" />
+          <label for="number">Balance</label>
+          <input id="Balance" value="" type="text" name="number" />
+      </form>
+  
+      <p id="output"></p>
+      </div>
+      <button class="btn btn-dark" id="betA" type="submit">Run :></button>
+
+   </body>
+   <script>
+      function example() {
+        let betA = document.querySelector("#betA");
+        let betB = document.querySelector("#betB");
+        
+        
+        betA.onclick = function() {
+          let aStat = document.querySelector("#aStat").value;
+          let bStat = document.querySelector("#bStat").value;
+          let aPick = document.querySelector("#aPick").value;
+          let bPick = document.querySelector("#bPick").value;
+          let Balance = document.querySelector("#Balance").value;
+          let total = parseInt(aPick)/(parseInt(aPick) + parseInt(bPick));
+
+    
+            let betAAmount =  ((Balance / 10 *total)/aStat);
+            let betBAmount =  ((Balance / 10 *(1-total))/bStat);
+
+    
+            if(total <= 0.667 && total >= 0.334) {
+                console.log("Don't bet.");
+              } else if(total >= 0.667) {
+                console.log("Bet on A with amount " + betAAmount);
+              } else if(total <= 0.334) {
+                console.log("Bet on B with amount " + betBAmount);
+
+  
+
+          }
+
+         };
+
+     
+      }
+      example();
+   </script>
+</html>
