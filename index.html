@@ -25,16 +25,15 @@
           <label for="number">Balance</label>
           <input id="Balance" value="" type="text" name="number" />
       </form>
-  
-      <p id="output"></p>
       </div>
       <button class="btn btn-dark" id="betA" type="submit">Run :></button>
-
+      <p id="output"></p>
    </body>
    <script>
       function example() {
         let betA = document.querySelector("#betA");
         let betB = document.querySelector("#betB");
+        const output = document.getElementById("output");
         
         
         betA.onclick = function() {
@@ -51,11 +50,11 @@
 
     
             if(total <= 0.667 && total >= 0.334) {
-                console.log("Don't bet.");
+                output.textContent = "Don't bet.";
               } else if(total >= 0.667) {
-                console.log("Bet on A with amount " + betAAmount);
+                 output.textContent = "Bet on A with amount " + betAAmount;
               } else if(total <= 0.334) {
-                console.log("Bet on B with amount " + betBAmount);
+                 output.textContent = "Bet on B with amount " + betBAmount;
 
   
 
